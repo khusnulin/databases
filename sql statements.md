@@ -79,3 +79,48 @@ FROM invoices
 WHERE invoice_total - payment_total - credit_total > 0
 ORDER BY invoice_date
 ```
+with joins data
+```sql
+SELECT vendor_name, invoice_number, invoice_date, invoice_total
+FROM vendors INNER JOIN invoices
+ON vendors.vendor_id = invoicces.vendor_id
+WHERE invoice_total >= 500
+ORDER BY vendor_name, invoice_total DESC
+```
+
+# Insert a row to the Invoices table
+
+```sql
+INSERT INTO invoices
+(vendor_id, invoice_number, invoice_date, invoice_total, terms_id, invoices_due_date)
+VALUES (12, '32434343', '2021-06-22', 165, 3, '2021-07-22')
+```
+# Update the value of a column
+
+```sql
+UPDATE invoices
+SET credit_total = 35.89
+WHERE invoice_number = '32434343'
+```
+# Update multiple values of a column for multiple rows
+
+```sql
+UPDATE invoices
+SET invoice_due_date = DATE_ADD(invoice_due_date, INTERVAL 30 day) 
+WHERE terms_id = 4
+```
+# Delete invoice from Invoices table
+```sql
+DELETE FROM invoices
+WHERE invoice_number = '32434343'
+```
+# Delete all paid invoices
+```sql
+/*
+Author:
+Date: 22/06/2021
+*/
+
+DELETE FROM invoices
+WHERE invoice_total - payment_total - credit_total = 0
+```
