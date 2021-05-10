@@ -117,7 +117,7 @@ WHERE invoice_number = '32434343'
 # Delete all paid invoices
 ```sql
 /*
-Author:
+Author: Ruslan Khusnulin
 Date: 22/06/2021
 */
 
