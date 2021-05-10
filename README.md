@@ -14,7 +14,7 @@ Clients <-> Application Server <-> Database Server
 
 Clients <-> Internet <-> Web Server <-> Database Server
 
-Пример (Таблица поставщиков в базе Accounts Payable)
+Пример (Таблица поставщиков в базе Accounts Payable) - Vendor Table
 
 | vendor_id | vendor_name | vendor_address | vendor_city |
 |---|---|---|---|
@@ -25,10 +25,13 @@ Clients <-> Internet <-> Web Server <-> Database Server
 |5|Почтовая служба 4|а.я. 138| Москва|
 |6|Почтовая служба 5|а.я. 138| Москва|
 
-vendor_id - primary key - уникальная колонка
+vendor_id - Primary key - уникальная колонка
+
 vendor_name .. vendor_city - колонки (Columns)
 
 # Связывание двух таблиц
+
+Таблица счетов (Invoice Table)
 
 | invoice_id | vendor_id | invoice_number | invoice_date | invoice_total | payment_total | credit_total|
 |---|---|---|---|---|---|---|
@@ -39,3 +42,6 @@ vendor_name .. vendor_city - колонки (Columns)
 |68|6|4545577| 2021-06-01|40.45|40.45|0.0
 
 vendor_id - Foreign key
+
+Parent Table - в данном примере Vendor Table, Child - Invoice Table
+
