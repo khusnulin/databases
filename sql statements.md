@@ -83,7 +83,7 @@ with joins data
 ```sql
 SELECT vendor_name, invoice_number, invoice_date, invoice_total
 FROM vendors INNER JOIN invoices
-ON vendors.vendor_id = invoicces.vendor_id
+ON vendors.vendor_id = invoices.vendor_id
 WHERE invoice_total >= 500
 ORDER BY vendor_name, invoice_total DESC
 ```
@@ -123,4 +123,21 @@ Date: 22/06/2021
 
 DELETE FROM invoices
 WHERE invoice_total - payment_total - credit_total = 0
+```
+# Example
+```sql
+SELECT invoice_number, invoice_date, invoice_total 
+FROM invoices 
+ORDER BY invoice_total DESC;
+
+-- all invoices between dates
+SELECT invoice_number, invoice_date, invoice_total
+FROM invoices
+WHERE invoice_date BETWEEN '2018-06-01' AND '2018-06-30'
+ORDER BY invoice_date
+
+-- more than number
+SELECT invoice_number, invoice_date, invoice_total
+FROM invoices
+WHERE invoice_total > 4000
 ```
