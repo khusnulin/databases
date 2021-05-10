@@ -41,7 +41,49 @@ vendor_name .. vendor_city - колонки (Columns)
 |67|6|4545542| 2021-06-01|40.45|40.45|0.0
 |68|6|4545577| 2021-06-01|40.45|40.45|0.0
 
-vendor_id - Foreign key
+vendor_id - Foreign key - полная гарантия того, что этот ID существует.
 
 Parent Table - в данном примере Vendor Table, Child - Invoice Table
+
+# Пример таблицы поставщиков (Vendors)
+|Column Name|Datatype|PK|NOT NULL|Auto Inc|Default/Expression
+|--|--|--|--|--|--|
+|vendor_id|INT(11)|YES|YES|YES|
+|vendor_name|VARCHAR(50)||YES
+|vendor_address1|VARCHAR(50)||YES
+|vendor_address2|VARCHAR(50)||YES
+|vendor_city|VARCHAR(50)||YES
+|vendor_state|CHAR(2)||YES
+|vendor_zip_code|VARCHAR(20)||YES
+|vendor_phone|VARCHAR(50)||YES
+|vendor_contact_last_name|VARCHAR(50)||YES
+|vendor_contact_first_name|VARCHAR(50)||YES
+
+
+# Пример таблицы счетов (Invoices)
+
+|Column Name|Datatype|PK|NOT NULL|Auto Inc|Default/Expression
+|--|--|--|--|--|--|
+|invoice_id|INT(11)|YES|YES|YES|
+|vendor_id|INT(11)||YES
+|invoice_number|VARCHAR(50)||YES
+|invoice_date|DATE||YES
+|invoice_total|DECIMAL(9,2)||YES
+|payment_total|DECIMAL(9,2)||YES||0.00
+|credit_total|DECIMAL(9,2)||YES||0.00
+|terms_id|INT(11)||YES
+|invoice_due_date|DATE||YES
+|payment_date|DATE||||NULL
+
+# Datatypes in MySQL
+
+* CHAR
+* VARCHAR
+* INT
+* DECIMAL
+* FLOAT
+* DATE
+
+
+
 
