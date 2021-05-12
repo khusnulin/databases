@@ -141,3 +141,28 @@ SELECT invoice_number, invoice_date, invoice_total
 FROM invoices
 WHERE invoice_total > 4000
 ```
+
+# Calculated columns
+
+```sql
+SELECT CONCAT(vendor_name, '''s Address: ') AS Vendor,
+CONCAT(vendor_city, ', ', vendor_state, " ", vendor_zip_code) AS Address
+FROM vendors
+```
+# Date format
+
+```sql
+SELECT invoice_date,
+DATE_FORMAT(invoice_date, '%m/%d/%y') AS 'MM/DD/YY',
+DATE_FORMAT(invoice_date, '%e-%b-%Y') AS 'DD-Mon-YYYY'
+FROM invoices
+ORDER BY invoice_date
+```
+
+# Create copy of table
+
+```sql
+CREATE TABLE invoices_copy AS
+SELECT *
+FROM invoices
+```
